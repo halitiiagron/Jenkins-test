@@ -1,1 +1,1 @@
-mprint("Hello World from Jenkins, CI/CD!")
+print("Hello World from Jenkins, CI/CD!")

@@ -2,24 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Debug Environment') {
+
+        stage('Debug Python') {
             steps {
-                bat 'echo %PATH%'
-                bat 'where python'
-                bat 'python --version'
-                bat 'where pip'
+                bat 'py --version'
+                bat 'py -c "import sys; print(sys.executable)"'
             }
         }
 
         stage('Install dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat 'py -m pip install -r requirements.txt'
             }
         }
 
-        stage('Run Python script') {
+        stage('Run app') {
             steps {
-                bat 'python app.py'
+                bat 'py app.py'
             }
         }
     }
