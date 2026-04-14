@@ -1,16 +1,19 @@
 pipeline {
     agent any
 
-    stages{
+    stages {
         stage('Install dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
-        stage ('Run Python script') {
+
+        stage('Run Python script') {
             steps {
-                sh 'python app.py'
+                bat 'python app.py'
             }
         }
     }
 }
+
+// why u no work-_-
