@@ -35,5 +35,17 @@ pipeline {
                 bat 'venv\\Scripts\\python app.py'
             }
         }
+
+        // --------------------------------------------------DockerFile part---------------
+        stage('Build Docker Image') {
+            steps {
+                bat 'docker build -t python-demo .'
+            }
+        }
+        stage('Run Docker Container') {
+            steps {
+                bat 'docker run python-demo'
+            }
+        }
     }
 }
