@@ -3,22 +3,22 @@ pipeline {
 
     stages {
 
-        stage('Debug Python') {
+        stage('Check Python') {
             steps {
-                bat 'py --version'
-                bat 'py -c "import sys; print(sys.executable)"'
+                bat 'python --version'
+                bat 'python -m pip --version'
             }
         }
 
         stage('Install dependencies') {
             steps {
-                bat 'py -m pip install -r requirements.txt'
+                bat 'python -m pip install -r requirements.txt'
             }
         }
 
         stage('Run app') {
             steps {
-                bat 'py app.py'
+                bat 'python app.py'
             }
         }
     }
