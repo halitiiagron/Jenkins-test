@@ -1,1 +1,2 @@
-print("Hello World from Jenkins, CI/CD!")
+def test_math():
+    assert 2 + 2 == 5
